@@ -18,6 +18,10 @@ export class AppComponent {
   public selectedUser?: User;
 
   public onSelectUser(id: string) {
-    this.selectedUser = this.users.find((user) => user.id === id);
+    if (this.selectedUser?.id === id) {
+      this.selectedUser = undefined;
+    } else {
+      this.selectedUser = this.users.find((user) => user.id === id);
+    }
   }
 }
